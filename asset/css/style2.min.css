@@ -544,9 +544,13 @@ html {
 }
 
 .container .lines .item {
-	width: 100%;
-	height: 1rem;
-	border-bottom: 1px solid #dadada
+    display: flex
+;
+    width: 100%;
+    height: 1rem;
+    border-bottom: 1px solid #dadada;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
 .container .lines .item:last-child {
@@ -639,7 +643,7 @@ html {
 }
 
 .container .lines .item .webs {
-	width: 2.3rem;
+	width: 8rem;
 	height: 100%;
 	display: flex;
 	justify-content: center;
@@ -649,16 +653,7 @@ html {
 	position: relative
 }
 
-.container .lines .item .webs:after {
-	content: "";
-	position: absolute;
-	right: 0;
-	top: 50%;
-	margin-top: -.2rem;
-	width: 1px;
-	height: .4rem;
-	background-color: #dadada
-}
+
 
 .container .lines .item .webs:before {
 	content: "";
@@ -751,7 +746,16 @@ html {
 	.webs.fl a {
 		font-size: 11px;
 	}
-
+	.container .lines .item .webs {
+		width: 2.3rem;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-size: 16px;
+		color: #333;
+		position: relative
+	}
 	.container .lines .item .txts {
 		width: .92rem;
 		height: 100%;
@@ -782,6 +786,11 @@ html {
 		font-size: 14px;
 		font-weight: 600;
 	}
+	.main-footer {
+		background-color: #dde8ff;
+		color: #cccccc;
+		padding: 20px 0;
+	}
 	.footer-branding {
 		display: flex;
 		gap: 42px;
@@ -791,11 +800,10 @@ html {
 }
 
 .main-footer {
-	background-color: #dde8ff;
-	color: #cccccc;
-	padding: 40px 0 0;
+    background-color: #dde8ff;
+    color: #cccccc;
+    padding: 20px 0;
 }
-
 .footer-container {
 	max-width: 1200px;
 	margin: 0 auto;
@@ -1088,4 +1096,47 @@ html {
 	.legal-links {
 		justify-content: center;
 	}
+}
+
+.fullscreen-slider {
+    width: 100%;
+    overflow: hidden;
+}
+
+.fullscreen-slider .swiper-slide img {
+    width: 100%;
+    height: 65vh;       /* banner cao 65% màn hình */
+    max-height: 700px;  /* không vượt quá 700px */
+    object-fit: cover;  /* crop ảnh cho đẹp, không méo */
+    display: block;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .fullscreen-slider .swiper-slide img {
+        height: 40vh;
+        max-height: 400px;
+    }
+}
+
+.marquee {
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  background: transparent; /* đổi màu nếu muốn */
+}
+
+.marquee-content {
+  display: inline-block;
+  padding-left: 100%; /* để chữ bắt đầu từ ngoài màn hình */
+  animation: marquee 35s linear infinite; /* 30s = tốc độ, chỉnh nhanh/chậm */
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
 }
